@@ -45,16 +45,23 @@
 
 > 其中jdk概率性失败，如果下载之后出现解压不了，建议自己去官网下载
 
-7. 编辑根目录下的ip.list文件，填写集群节点的内网地址，每行一个
+6. 编辑根目录下的ip.list文件，填写集群节点的内网地址，每行一个
 
-8. 上传本项目到集群任意一台服务器(建议在ip.list文件中的第一台服务器)，准备安装
+7. 上传本项目到集群任意一台服务器(建议在ip.list文件中的第一台服务器)，准备安装
 
-9. 使用**ROOT**用户执行安装命令(非全自动安装，安装过程中会要求配置MySQL和输入集群其他服务器的root密码)
+8. 使用**ROOT**用户执行安装命令(非全自动安装，安装过程中会要求配置MySQL和输入集群其他服务器的root密码)
 
    ```bash
    cd setup_cdh && sh setup_cdh5.sh
    ```
 
 ## 参考
+
+官网：https://www.cloudera.com/products/product-components/cloudera-manager.html
+
+教程：https://www.cnblogs.com/jlmx/p/CDH_5_16_2_on_CentOS7.html
+
+
+
 
 
