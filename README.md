@@ -54,6 +54,52 @@
    ```bash
    cd setup_cdh && sh setup_cdh5.sh
    ```
+   
+9. 启动服务
+    
+    ```bash
+    service cloudera-scm-server start
+    service cloudera-scm-agent start
+    ```
+
+## 常见错误
+
+Initing Cloudera Manager Database...
+
+JAVA_HOME=/usr/java/jdk1.8.0_181
+Verifying that we can write to /etc/cloudera-scm-server
+Creating SCM configuration file in /etc/cloudera-scm-server
+Executing:  /usr/java/jdk1.8.0_181/bin/java -cp /usr/share/java/mysql-connector-java.jar:/usr/share/java/oracle-connector-java.jar:/usr/share/java/postgresql-connector-java.jar:/usr/share/cmf/schema/../lib/* com.cloudera.enterprise.dbutil.DbCommandExecutor /etc/cloudera-scm-server/db.properties com.cloudera.cmf.db.
+[                          main] DbCommandExecutor              INFO  Unable to login using supplied username/password.
+[                          main] DbCommandExecutor              ERROR Error when connecting to database.
+java.sql.SQLException: Access denied for user 'scm'@'localhost' (using password: YES)
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:871)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1714)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1224)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2199)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2230)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2025)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:778)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)[mysql-connector-java.jar:5.1.47]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)[:1.8.0_181]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)[:1.8.0_181]
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)[:1.8.0_181]
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:423)[:1.8.0_181]
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)[mysql-connector-java.jar:5.1.47]
+        at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)[mysql-connector-java.jar:5.1.47]
+        at java.sql.DriverManager.getConnection(DriverManager.java:664)[:1.8.0_181]
+        at java.sql.DriverManager.getConnection(DriverManager.java:247)[:1.8.0_181]
+        at com.cloudera.enterprise.dbutil.DbCommandExecutor.testDbConnection(DbCommandExecutor.java:253)[db-common-5.16.2.jar:]
+        at com.cloudera.enterprise.dbutil.DbCommandExecutor.main(DbCommandExecutor.java:138)[db-common-5.16.2.jar:]
+[                          main] DbCommandExecutor              ERROR Exiting with exit code 8
+--> Error 8, giving up (use --force if you wish to ignore the error)
+
+#### 解决方案： https://www.cnblogs.com/MWCloud/p/11352557.html
+
 
 ## 参考
 
